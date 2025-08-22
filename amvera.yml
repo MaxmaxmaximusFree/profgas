@@ -1,0 +1,15 @@
+meta:
+  environment: node
+  toolchain:
+    name: npm
+    version: 20
+
+install:
+  - npm install
+
+build:
+  - npm run build
+
+run:
+  command: npm run start
+  containerPort: 80
