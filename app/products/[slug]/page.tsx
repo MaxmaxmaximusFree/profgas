@@ -7,10 +7,17 @@ import Button from "@/widgets/Button";
 import { getProductBySlug } from "@/actions/actions";
 import ProductGallery from "@/components/ProductGallery";
 
-const ProductDetailPage = async ({ params }: { params: { slug: string } }) => {
-  const product = await getProductBySlug(params.slug);
+type PageProps = {
+    params: Promise<{
+        slug: string;
+    }>;
+};
 
-  if (!product) {
+const ProductDetailPage = async ({ params }: PageProps) => {
+    const { slug } = await params;
+    const product = await getProductBySlug(slug);
+
+    if (!product) {
     return <div>Продукт не найден</div>;
   }
 

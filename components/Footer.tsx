@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.bottomBar}>
-        <p>&copy; {new Date().getFullYear()} ООО "Профгаз". Все права защищены.</p>
+        <p>&copy; {new Date().getFullYear()} ООО {'"'}Профгаз{'"'}. Все права защищены.</p>
       </div>
     </footer>
   );

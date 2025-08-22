@@ -4,9 +4,16 @@ import Footer from '@/components/Footer';
 import styles from '../articles.module.scss';
 import { getArticles } from '@/actions/actions';
 
-const ArticleDetailPage = async ({ params }: { params: { slug: string } }) => {
+type PageProps = {
+    params: Promise<{
+        slug: string;
+    }>;
+};
+
+const ArticleDetailPage = async ({ params }: PageProps) => {
+    const { slug } = await params;
     const articles = await getArticles();
-    const article = articles.find(a => a.id === params.slug);
+    const article = articles.find(a => a.id === slug);
 
     if (!article) {
         return <div>Статья не найдена</div>

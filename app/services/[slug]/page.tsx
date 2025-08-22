@@ -4,9 +4,16 @@ import Footer from '@/components/Footer';
 import styles from '../services.module.scss';
 import { getServices } from '@/actions/actions';
 
-const ServiceDetailPage = async ({ params }: { params: { slug: string } }) => {
+type PageProps = {
+    params: Promise<{
+        slug: string;
+    }>;
+};
+
+const ServiceDetailPage = async ({ params }: PageProps) => {
+    const { slug } = await params;
     const services = await getServices();
-    const service = services.find(s => s.id === params.slug);
+    const service = services.find(s => s.id === slug);
 
     if (!service) {
         return <div>Услуга не найдена</div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Children, cloneElement, isValidElement } from "react";
+import React, { Children, cloneElement } from "react";
 import styles from "./AnimateOnScroll.module.scss";
 
 interface AnimateOnScrollProps {
