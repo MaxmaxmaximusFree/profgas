@@ -1,0 +1,11 @@
+@layer component {
+  .services {
+    padding: 5rem 2rem;
+    background: var(--gradient-background);
+
+    .container {
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@layer component {
+  .footer {
+    background-color: #1a1a1a; // Dark background
+    color: #a0a0a0; // Light gray text
+    padding: 5rem 2rem 2rem;
+
+    .container {
+      max-width: 80rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+
+      @media (max-width: 64rem) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 40rem) {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .aboutColumn {
+        .logo {
+          margin-bottom: 1.5rem;
+          img {
+            filter: brightness(0) invert(1); // Invert logo for dark background
+          }
+        }
+        p {
+          font-size: 0.95rem;
+          line-height: 1.7;
+        }
+      }
+
+      .linksColumn,
+      .contactColumn {
+        h4 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #ffffff; // White headings
+          margin-bottom: 1.5rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+
+        a {
+          color: #a0a0a0;
+          text-decoration: none;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: #ffffff;
+          }
+        }
+      }
+
+      .linksColumn {
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li {
+            margin-bottom: 0.8rem;
+          }
+        }
+      }
+
+      .contactColumn {
+        p,
+        a {
+          display: block;
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+
+    .bottomBar {
+      border-top: 0.0625rem solid #333;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  }
+}

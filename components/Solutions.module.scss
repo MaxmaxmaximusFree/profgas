@@ -1,0 +1,11 @@
+@layer component {
+  .solutions {
+    padding: 6rem 2rem;
+    background-color: #ffffff; // Pure white background
+
+    .container {
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+  }
+}

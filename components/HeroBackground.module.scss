@@ -1,0 +1,72 @@
+@layer component {
+  .backgroundContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // background: radial-gradient(
+      //   circle at 50% 100%,
+      //   rgba(255, 255, 255, 0.1) 0%,
+      //   rgba(255, 255, 255, 0.4) 70%
+      // );
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: kenburns var(--total-duration) infinite;
+    }
+
+    @keyframes kenburns {
+      /*
+        Логика кросс-фейда: анимация одного слайда длиннее его "слота",
+        чтобы она накладывалась на анимацию следующего.
+      */
+
+      /* Старт: слайд невидимый и увеличенный */
+      0% {
+        opacity: 0;
+        transform: scale(1.15);
+      }
+
+      /* Фаза появления (первые 5% времени) */
+      5% {
+        opacity: 1;
+      }
+
+      /* Фаза видимости с эффектом Кена Бёрнса (плавное уменьшение) */
+      /* Длится до 25% - момента старта следующего слайда */
+      25% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Фаза затухания (с 25% до 30%), которая накладывается на появление следующего слайда */
+      30% {
+        opacity: 0;
+        transform: scale(1); /* Удерживаем масштаб, чтобы избежать рывка */
+      }
+
+      /* Остальное время слайд невидимый, ждет своего нового цикла */
+      100% {
+        opacity: 0;
+        transform: scale(1.15); /* Сброс в исходное состояние для зацикливания */
+      }
+    }
+  }
+}

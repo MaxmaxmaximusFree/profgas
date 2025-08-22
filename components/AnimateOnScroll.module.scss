@@ -1,0 +1,42 @@
+@layer component {
+  @keyframes AnimateOnScroll-fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes AnimateOnScroll-fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate {
+    /* By default, animations are paused */
+    animation-play-state: paused;
+    animation-duration: var(--animation-duration, 0.5s);
+    animation-delay: var(--animation-delay, 0s);
+    animation-fill-mode: both; /* Keeps the 'to' state after animation */
+
+    /* Link to the scroll-driven animation timeline */
+    animation-timeline: view();
+    animation-range-start: entry 0%;
+    animation-range-end: entry 40%;
+  }
+
+  .fadeInUp {
+    animation-name: AnimateOnScroll-fadeInUp;
+  }
+
+  .fadeIn {
+    animation-name: AnimateOnScroll-fadeIn;
+  }
+}

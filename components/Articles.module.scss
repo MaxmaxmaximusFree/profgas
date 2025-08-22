@@ -1,0 +1,22 @@
+@layer component {
+  .articles {
+    padding: 6rem 2rem;
+    background-color: #ffffff; // Pure white background
+
+    .container {
+      max-width: 80rem;
+      margin: 0 auto;
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        gap: 2.5rem;
+      }
+
+      .ctaWrapper {
+        text-align: center;
+        margin-top: 4rem;
+      }
+    }
+  }
+}

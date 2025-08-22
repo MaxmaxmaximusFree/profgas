@@ -1,0 +1,102 @@
+@layer widget {
+  .button {
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 0.875rem 1.75rem; /* Slightly larger padding */
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.25s ease-in-out;
+    border: max(1px, 0.0625rem) solid transparent; /* Thicker border for outline */
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1),
+      0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+    outline: none; /* Remove outline */
+    will-change: transform;
+    user-select: none;
+
+    &:hover {
+      transform: translateY(-0.1875rem);
+      box-shadow: 0 0.5rem 1.5625rem rgba(0, 0, 0, 0.15),
+        0 0.1875rem 0.3125rem rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-inset);
+    }
+
+    &.__disabled,
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .primary {
+    background-color: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
+      filter: brightness(1.1);
+    }
+  }
+
+  .secondary {
+    background-color: var(--color-background-muted);
+    color: var(--color-foreground);
+    border-color: var(--color-border);
+
+    &:hover {
+      background-color: #e6ebf1;
+      border-color: var(--color-border-muted);
+      color: var(--color-foreground);
+      filter: brightness(1.1);
+    }
+  }
+
+  .outline {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+
+    &:hover {
+      background-color: var(--color-accent);
+      color: #fff;
+      filter: brightness(1.1);
+    }
+  }
+
+  .glass {
+    position: relative; /* Needed for the Glass component to position itself correctly */
+    background: transparent;
+    color: #fff;
+    text-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+    border: max(1px, 0.0625rem) solid rgba(255, 255, 255, 1);
+    overflow: hidden; /* Keep overflow hidden to contain the glass effect */
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1),
+      0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2),
+        inset 0 0.0625rem 0 rgba(255, 255, 255, 0.3);
+      filter: none;
+    }
+  }
+}

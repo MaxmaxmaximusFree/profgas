@@ -1,0 +1,139 @@
+@layer component {
+  .contacts {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+    .container {
+      max-width: 75rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: flex-start;
+
+      @media (max-width: 64rem) {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .textWrapper {
+        .sectionTitle {
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          color: var(--color-foreground);
+        }
+
+        .subtitle {
+          font-size: 1.25rem;
+          color: var(--color-muted);
+          margin-bottom: 3.5rem;
+          max-width: 30rem;
+        }
+
+        .infoGrid {
+          display: grid;
+          gap: 2.5rem;
+
+          .infoBlock {
+            h3 {
+              font-size: 1rem;
+              font-weight: 600;
+              margin-bottom: 0.75rem;
+              color: var(--color-muted);
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+            }
+
+            p,
+            a {
+              font-size: 1.2rem;
+              font-weight: 500;
+              color: var(--color-foreground);
+              text-decoration: none;
+              transition: color 0.2s ease;
+
+              &:hover {
+                color: var(--color-accent);
+              }
+            }
+          }
+        }
+      }
+
+      .formWrapper {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 3.5rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(0.625rem);
+
+        .form {
+          display: flex;
+          flex-direction: column;
+
+          .inputGroup {
+            position: relative;
+            margin-bottom: 2.5rem;
+
+            .input,
+            .textarea {
+              width: 100%;
+              padding: 1rem 0.5rem 0.5rem;
+              border: none;
+              border-bottom: 0.125rem solid var(--color-border);
+              background-color: transparent;
+              font-size: 1.1rem;
+              color: var(--color-foreground);
+              transition: border-color 0.3s ease;
+
+              &:focus {
+                outline: none;
+                border-color: var(--color-accent);
+              }
+
+              &:focus + .label,
+              &:valid + .label {
+                transform: translateY(-1.5rem) scale(0.8);
+                color: var(--color-accent);
+              }
+            }
+
+            .label {
+              position: absolute;
+              top: 0.75rem;
+              left: 0.5rem;
+              font-size: 1.1rem;
+              color: var(--color-muted);
+              pointer-events: none;
+              transition: all 0.3s ease;
+            }
+
+            .textarea {
+              min-height: 8rem;
+              resize: vertical;
+            }
+          }
+
+          .submitButton {
+            width: 100%;
+          }
+
+          .policy {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin-top: 1.5rem;
+            text-align: center;
+
+            a {
+              color: var(--color-accent);
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

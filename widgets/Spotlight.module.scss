@@ -1,0 +1,47 @@
+@layer widgets {
+  .spotlightWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out, width 0.4s ease-out,
+      height 0.4s ease-out;
+    z-index: 0;
+  }
+
+  .spotlight {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transition: background 0.4s ease-in-out;
+  }
+
+  .layer1 {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(var(--spotlight-rgb, var(--rgb-accent)), 0.25),
+      transparent 40%
+    );
+    filter: blur(2rem);
+  }
+
+  .layer2 {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(var(--spotlight-rgb, var(--rgb-accent)), 0.2),
+      transparent 50%
+    );
+    filter: blur(0.5rem);
+    opacity: 0.8;
+  }
+
+  .layer3 {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(var(--spotlight-rgb, var(--rgb-accent)), 0.1),
+      transparent 70%
+    );
+    filter: blur(3rem);
+    transform: scale(1.2);
+  }
+}

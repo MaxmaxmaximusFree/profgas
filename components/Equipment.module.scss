@@ -1,0 +1,42 @@
+@layer component {
+  .equipment {
+    padding: 5rem 2rem;
+    background-color: var(--color-background);
+
+    .container {
+      max-width: 80rem;
+      margin: 0 auto;
+
+      .itemsWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+
+        .textWrapper {
+          .itemDescription {
+            font-size: 1.1rem;
+            color: var(--color-muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+          }
+
+          .learnMoreLink {
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+              color: var(--color-accent-hover);
+            }
+          }
+        }
+      }
+
+      .ctaWrapper {
+        text-align: center;
+        margin-top: 5rem;
+      }
+    }
+  }
+}

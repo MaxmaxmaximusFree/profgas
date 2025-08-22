@@ -1,0 +1,136 @@
+@layer component {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 2rem;
+    height: 7rem;
+    transition: height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+
+    .container {
+      max-width: 85rem;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .logoContainer {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logoWrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 8.75rem; // Width of the regular logo
+      transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      object-fit: contain;
+    }
+
+    .logoRegular {
+      opacity: 1;
+    }
+
+    .logoSticky {
+      opacity: 0;
+      transform: translateY(0.625rem) scale(0.9);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .contactInfoContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+    }
+
+    .phoneNumber {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transform-origin: top right;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        color 0.2s ease;
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
+
+    .hereIndicator {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      opacity: 0;
+      transform: translateX(50%);
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .address {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.2s ease;
+    }
+
+    // Modifier class must be last to ensure specificity
+    &.__scrolled {
+      height: 5rem;
+      padding: 1rem 2rem;
+
+      .logoWrapper {
+        width: 2.5rem; // Width of the sticky logo
+      }
+
+      .logoRegular {
+        opacity: 0;
+        transform: translateY(-0.625rem) scale(0.9);
+      }
+
+      .logoSticky {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .address {
+        opacity: 0;
+      }
+
+      .phoneNumber {
+        transform: scale(1.2) translateY(0.6rem);
+      }
+
+      .hereIndicator {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+}

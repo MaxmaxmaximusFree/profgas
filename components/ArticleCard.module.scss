@@ -1,0 +1,56 @@
+@layer component {
+  .articleCard {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--color-background);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 0.0625rem solid var(--color-border-muted);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: var(--shadow-lg);
+
+      .image {
+        transform: scale(1.05);
+      }
+    }
+
+    .imageWrapper {
+      position: relative;
+      width: 100%;
+      height: 14rem;
+      overflow: hidden;
+
+      .image {
+        transition: transform 0.4s ease;
+      }
+    }
+
+    .content {
+      padding: 1.5rem;
+
+      .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .excerpt {
+        font-size: 1rem;
+        color: var(--color-muted);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .readMore {
+        font-weight: 600;
+        color: var(--color-accent);
+      }
+    }
+  }
+}

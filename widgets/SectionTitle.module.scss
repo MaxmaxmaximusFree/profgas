@@ -1,0 +1,28 @@
+@layer widgets {
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    position: relative;
+    padding-bottom: 1.5rem;
+
+    .decorator {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5rem;
+      height: 0.25rem;
+      background-color: var(--color-accent);
+      border-radius: 0.0625rem;
+      transition: width 0.5s ease-in-out;
+    }
+
+    &:hover .decorator {
+      width: 7.5rem;
+    }
+  }
+}
